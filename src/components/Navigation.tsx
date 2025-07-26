@@ -32,9 +32,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 hero-gradient rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">LA</span>
+              <span className="text-primary-foreground font-bold text-lg">MD</span>
             </div>
-            <span className="text-xl font-bold text-foreground">Lovable AI</span>
+            <span className="text-xl font-bold text-foreground">Mohmand Dam Hydropower</span>
           </Link>
 
           {/* Desktop Navigation */}

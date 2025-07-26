@@ -10,9 +10,9 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 hero-gradient rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">LA</span>
+                <span className="text-primary-foreground font-bold text-lg">MD</span>
               </div>
-              <span className="text-xl font-bold text-foreground">Lovable AI</span>
+              <span className="text-xl font-bold text-foreground">Mohmand Dam Hydropower</span>
             </div>
             <p className="text-muted-foreground">
               Empowering Pakistan through sustainable hydropower development and modern infrastructure.
@@ -68,7 +68,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2024 Lovable AI - Mohmand Dam Project. All rights reserved.
+            © 2024 Mohmand Dam Hydropower. All rights reserved.
           </p>
         </div>
       </div>
