@@ -10,9 +10,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Clock, Users, Mail, Phone, Building } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Careers = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -93,7 +95,7 @@ const Careers = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!selectedFile) {
@@ -105,22 +107,87 @@ const Careers = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Application Submitted Successfully!",
-      description: "We will review your application and contact you within 5-7 business days.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      position: '',
-      experience: '',
-      coverLetter: ''
-    });
-    setSelectedFile(null);
+    try {
+      // Upload CV to Supabase Storage
+      const fileName = `${Date.now()}-${selectedFile.name}`;
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('cvs')
+        .upload(fileName, selectedFile);
+
+      if (uploadError) {
+        throw new Error(`CV upload failed: ${uploadError.message}`);
+      }
+
+      // Get public URL for the uploaded CV
+      const { data: { publicUrl } } = supabase.storage
+        .from('cvs')
+        .getPublicUrl(fileName);
+
+      // Save application to database
+      const { data: applicationData, error: dbError } = await supabase
+        .from('applications')
+        .insert({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          position: formData.position,
+          experience: formData.experience,
+          cover_letter: formData.coverLetter || null,
+          cv_url: publicUrl
+        })
+        .select()
+        .single();
+
+      if (dbError) {
+        throw new Error(`Database error: ${dbError.message}`);
+      }
+
+      // Send email notification
+      const { error: emailError } = await supabase.functions.invoke('send-application-notification', {
+        body: {
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          position: formData.position,
+          experience: formData.experience,
+          cover_letter: formData.coverLetter,
+          cv_url: publicUrl
+        }
+      });
+
+      if (emailError) {
+        console.error('Email notification failed:', emailError);
+        // Don't throw error for email failures since the application was saved
+      }
+
+      toast({
+        title: "Application Submitted Successfully! 🎉",
+        description: "HR team notified. You'll hear back within 5-7 business days.",
+      });
+
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        position: '',
+        experience: '',
+        coverLetter: ''
+      });
+      setSelectedFile(null);
+
+    } catch (error: any) {
+      console.error('Submission error:', error);
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again or contact HR directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -326,8 +393,9 @@ const Careers = () => {
                     variant="hero" 
                     size="lg" 
                     className="w-full"
+                    disabled={isSubmitting}
                   >
-                    Submit Application
+                    {isSubmitting ? "Submitting..." : "Submit Application"}
                   </Button>
                 </form>
               </CardContent>
