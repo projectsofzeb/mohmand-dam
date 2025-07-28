@@ -32,7 +32,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to HR
     const emailResponse = await resend.emails.send({
       from: "Mohmand Dam HR <onboarding@resend.dev>",
-      to: ["ziaratwhite8@gmail.com"],
+      to: ["atifcyber7@gmail.com"],
       subject: `New Job Application - ${applicationData.position}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
