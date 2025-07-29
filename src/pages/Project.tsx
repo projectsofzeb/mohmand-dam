@@ -13,32 +13,32 @@ const Project = () => {
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Electricity Generation",
-      description: "Generate 1,293 MW of clean hydroelectric power to meet Pakistan's growing energy demands.",
-      impact: "Annual generation of 5.15 billion kWh"
+      description: "Generate 800 MW of clean hydroelectric power to meet Pakistan's growing energy demands.",
+      impact: "Power for 2.9 million homes - Annual generation of 2.86 billion kWh"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Flood Control",
-      description: "Protect downstream areas from devastating floods and provide water security.",
-      impact: "Protects 2.5 million people from floods"
+      description: "Protect downstream areas from devastating floods in Charsadda, Nowshera, and nearby areas.",
+      impact: "Flood mitigation for surrounding regions"
     },
     {
       icon: <Droplets className="w-8 h-8" />,
-      title: "Irrigation",
-      description: "Provide reliable water supply for agricultural development and food security.",
-      impact: "Irrigates 16,737 acres of new land"
+      title: "Water Supply & Irrigation",
+      description: "Provide reliable water supply for agricultural development and clean drinking water to Peshawar.",
+      impact: "Irrigates 17,000 acres + 300 million gallons/day drinking water"
     }
   ];
 
   const specifications = [
+    { label: "Dam Type", value: "Concrete-faced rockfill dam (CFRD)" },
     { label: "Dam Height", value: "213 meters" },
-    { label: "Dam Length", value: "630 meters" },
-    { label: "Reservoir Capacity", value: "1.29 MAF" },
-    { label: "Installed Capacity", value: "1,293 MW" },
-    { label: "Annual Generation", value: "5.15 TWh" },
-    { label: "Project Cost", value: "USD 2.9 Billion" },
-    { label: "Construction Period", value: "2019 - 2026" },
-    { label: "Design Life", value: "100 years" }
+    { label: "Storage Capacity", value: "1.2 million acre-feet (MAF)" },
+    { label: "Installed Capacity", value: "800 MW" },
+    { label: "Annual Generation", value: "2.86 billion kWh" },
+    { label: "Project Cost", value: "Rs. 309 billion PKR" },
+    { label: "Construction Period", value: "May 2019 - 2026" },
+    { label: "Contractor", value: "CGGC & Descon Engineering JV" }
   ];
 
   const gallery = [
@@ -71,11 +71,11 @@ const Project = () => {
               Infrastructure Development
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Mohmand Dam Project
+              Mohmand Dam Hydropower Project (MDHP)
             </h1>
             <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
-              A multi-purpose hydroelectric project designed to transform Pakistan's 
-              energy landscape and provide sustainable development for generations.
+              Located in Mohmand District, near Peshawar, Khyber Pakhtunkhwa, Pakistan. 
+              A multi-purpose dam providing hydropower, flood control, irrigation, and drinking water supply.
             </p>
           </div>
         </div>
@@ -181,8 +181,8 @@ const Project = () => {
                   <Users className="w-6 h-6 text-warning" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Community Benefits</h3>
-                  <p className="text-muted-foreground">Creates 30,000+ jobs and improves living standards for local communities.</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Social Impact</h3>
+                  <p className="text-muted-foreground">Employment for thousands of locals with rehabilitation/resettlement plan for affected communities.</p>
                 </div>
               </div>
             </div>

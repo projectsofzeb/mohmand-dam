@@ -48,15 +48,15 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
             <div className="glass-effect p-4 rounded-lg">
-              <div className="text-2xl md:text-3xl font-bold text-primary-light">1,293 MW</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary-light">800 MW</div>
               <div className="text-white/80">Power Generation</div>
             </div>
             <div className="glass-effect p-4 rounded-lg">
-              <div className="text-2xl md:text-3xl font-bold text-primary-light">$2.9B</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary-light">Rs. 309B</div>
               <div className="text-white/80">Total Investment</div>
             </div>
             <div className="glass-effect p-4 rounded-lg">
-              <div className="text-2xl md:text-3xl font-bold text-primary-light">1.29M</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary-light">1.2M</div>
               <div className="text-white/80">Acre Feet Storage</div>
             </div>
           </div>

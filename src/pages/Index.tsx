@@ -12,30 +12,30 @@ const Index = () => {
     {
       icon: <Zap className="w-6 h-6" />,
       title: "Clean Energy",
-      description: "1,293 MW of sustainable hydroelectric power generation"
+      description: "800 MW of sustainable hydroelectric power generation"
     },
     {
       icon: <Shield className="w-6 h-6" />,
       title: "Flood Protection",
-      description: "Advanced flood control systems protecting millions"
+      description: "Flood mitigation for Charsadda, Nowshera, and nearby areas"
     },
     {
       icon: <Droplets className="w-6 h-6" />,
       title: "Water Security",
-      description: "Reliable irrigation for agricultural development"
+      description: "17,000 acres irrigation + 300M gallons/day drinking water"
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: "Job Creation",
-      description: "30,000+ employment opportunities created"
+      description: "Employment for thousands of locals"
     }
   ];
 
   const stats = [
     { number: "65%", label: "Project Completion" },
     { number: "2026", label: "Expected Completion" },
-    { number: "$2.9B", label: "Total Investment" },
-    { number: "100", label: "Years Design Life" }
+    { number: "Rs. 309B", label: "Total Investment" },
+    { number: "800 MW", label: "Power Capacity" }
   ];
 
   return (
