@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-secondary/50 border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -61,30 +61,6 @@ const Footer = () => {
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin size={16} />
                 <span>Mohmand District, KPK, Pakistan</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Developer */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Developer</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/4a1500e4-8aec-4803-95de-9f12d2d3f3b1.png" 
-                  alt="Atif Zeb" 
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-medium text-foreground">Atif Zeb</p>
-                  <p className="text-sm text-muted-foreground">Junior Network Administrator</p>
-                </div>
-              </div>
-              <div className="text-sm text-muted-foreground space-y-1">
-                <p>BS in IT, Peshawar</p>
-                <p>Network Admin & Cybersecurity</p>
-                <p>CEH, CHFI Certified</p>
-                <p>Python Security Tools & AI Chatbots</p>
               </div>
             </div>
           </div>
